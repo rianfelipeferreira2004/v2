@@ -97,17 +97,12 @@ ManagerButton.MouseButton1Click:Connect(function()
     local NewState = not _G.YOKUDO_ManagerDrone.IsEnabled()
     UpdateManagerUI(NewState)
 
-    -- ✅ Call Enable/Disable + Save Config (autoload no rejoin)
+    -- ✅ Call Enable/Disable (មិន Save Config)
     if NewState then
         _G.YOKUDO_ManagerDrone.Enable()
     else
         _G.YOKUDO_ManagerDrone.Disable()
     end
-    pcall(function()
-        if _G.YOKUDO_ConfigSystem then
-            _G.YOKUDO_ConfigSystem.Save()
-        end
-    end)
 end)
 
 --==================================================
